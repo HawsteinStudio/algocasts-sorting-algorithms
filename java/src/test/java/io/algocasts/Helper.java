@@ -406,9 +406,26 @@ public class Helper {
     return matrix;
   }
 
+  public static int[] reverseArray(int[] arr) {
+    if (arr == null || arr.length == 0) return arr;
+    for (int i=0, j=arr.length-1; i < j; ++i, --j)
+      swap(arr, i, j);
+    return arr;
+  }
+
   public static int[] getSortedArray(int arrayLength) {
     int[] arr = getRandomArray(arrayLength);
     Arrays.sort(arr);
+    return arr;
+  }
+
+  public static int[] getReverseSortedArray(int arrayLength) {
+    return reverseArray(getSortedArray(arrayLength));
+  }
+
+  public static int[] getSameElementArray(int arrayLength, int value) {
+    int[] arr = getRandomArray(arrayLength);
+    Arrays.fill(arr, value);
     return arr;
   }
 
@@ -422,6 +439,12 @@ public class Helper {
 
 
   //////////////////// private method ///////////////////////
+  private static void swap(int[] arr, int i, int j) {
+    int tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+
   private static TreeNode buildTree(
     int[] preorder, int preStart, int preEnd,
     int inStart, Map<Integer, Integer> inPos) {
