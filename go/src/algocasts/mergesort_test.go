@@ -17,7 +17,6 @@ func TestMergeSortRecursive(t *testing.T) {
 	}
 	for _, tt := range tests {
 		MergeSortRecursive(tt.input)
-		t.Log(tt.input, tt.want)
 		assert.Equal(t, tt.input, tt.want)
 	}
 }
