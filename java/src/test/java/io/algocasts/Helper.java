@@ -389,6 +389,7 @@ public class Helper {
     return arr;
   }
 
+  // All elements are in [minValue, maxValue)
   public static int[] getRandomArray(int arrayLength, int minValue, int maxValue) {
     int[] arr = new int[arrayLength];
     for (int i = 0; i < arrayLength; ++i) {
