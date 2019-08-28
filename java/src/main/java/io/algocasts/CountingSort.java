@@ -2,7 +2,8 @@ package io.algocasts;
 
 public class CountingSort {
 
-  // indexes 最后存储的是每个数字在排序后数组的开始位置，相同数字会依次向后（右）放入。
+  // indexes 最后存储的是排序后，相同数字在结果数组的开始位置，相同数字会依次向后（右）填充。
+  // Time: O(n+k), Space: O(n+k)
   public void sortLeft2Right(int[] arr) {
     if (arr == null || arr.length == 0) return;
     int max = arr[0], min = arr[0];
@@ -31,8 +32,8 @@ public class CountingSort {
     System.arraycopy(tmp, 0, arr, 0, arr.length);
   }
 
-  // indexes 最后存储的是每个数字在排序后数组的结束位置（取不到的那个位置，因此使用时要减1），
-  // 相同数字会依次向前（左）放入。
+  // indexes 最后存储的是排序后，相同数字在结果数组的结束位置，相同数字会依次向前（左）填充。
+  // Time: O(n+k), Space: O(n+k)
   public void sortRight2Left(int[] arr) {
     if (arr == null || arr.length == 0) return;
     int max = arr[0], min = arr[0];
