@@ -36,7 +36,7 @@ class SortTest {
     testSpecialCases(sort);
     // test random cases
     for (int i = 0; i < CNT; ++i) {
-      int[] arr = Helper.getRandomArray(LENGTH);
+      int[] arr = Helper.getRandomIntArray(LENGTH);
       int[] sorted = Helper.sortByBuiltinMethod(arr);
       sort.accept(arr);
       Assert.assertArrayEquals(sorted, arr);

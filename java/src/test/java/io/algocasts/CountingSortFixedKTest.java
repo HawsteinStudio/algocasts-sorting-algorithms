@@ -13,7 +13,7 @@ public class CountingSortFixedKTest {
   public void testLeft2RightVersion() {
     CountingSortFixedK c = new CountingSortFixedK(k);
     for (int i = 0; i < CNT; ++i) {
-      int[] arr = Helper.getRandomArray(LENGTH, 0, k+1);
+      int[] arr = Helper.getRandomIntArray(LENGTH, 0, k+1);
       int[] sorted = Helper.sortByBuiltinMethod(arr);
       c.sortLeft2Right(arr);
       Assert.assertArrayEquals(sorted, arr);
@@ -24,7 +24,7 @@ public class CountingSortFixedKTest {
   public void testRight2LeftVersion() {
     CountingSortFixedK c = new CountingSortFixedK(k);
     for (int i = 0; i < CNT; ++i) {
-      int[] arr = Helper.getRandomArray(LENGTH, 0, k+1);
+      int[] arr = Helper.getRandomIntArray(LENGTH, 0, k+1);
       int[] sorted = Helper.sortByBuiltinMethod(arr);
       c.sortRight2Left(arr);
       Assert.assertArrayEquals(sorted, arr);

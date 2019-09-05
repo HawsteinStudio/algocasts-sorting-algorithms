@@ -381,7 +381,7 @@ public class Helper {
     return sb.toString();
   }
 
-  public static int[] getRandomArray(int arrayLength) {
+  public static int[] getRandomIntArray(int arrayLength) {
     int[] arr = new int[arrayLength];
     for (int i = 0; i < arrayLength; ++i) {
       arr[i] = RANDOM.nextInt(arrayLength * FACTOR);
@@ -390,10 +390,19 @@ public class Helper {
   }
 
   // All elements are in [minValue, maxValue)
-  public static int[] getRandomArray(int arrayLength, int minValue, int maxValue) {
+  public static int[] getRandomIntArray(int arrayLength, int minValue, int maxValue) {
     int[] arr = new int[arrayLength];
     for (int i = 0; i < arrayLength; ++i) {
       arr[i] = RANDOM.nextInt(maxValue - minValue) + minValue;
+    }
+    return arr;
+  }
+
+  // All elements are in [0, 1)
+  public static double[] getRandomDoubleArray(int arrayLength) {
+    double[] arr = new double[arrayLength];
+    for (int i = 0; i < arrayLength; ++i) {
+      arr[i] = RANDOM.nextDouble();
     }
     return arr;
   }
@@ -415,7 +424,7 @@ public class Helper {
   }
 
   public static int[] getSortedArray(int arrayLength) {
-    int[] arr = getRandomArray(arrayLength);
+    int[] arr = getRandomIntArray(arrayLength);
     Arrays.sort(arr);
     return arr;
   }
@@ -425,7 +434,7 @@ public class Helper {
   }
 
   public static int[] getSameElementArray(int arrayLength, int value) {
-    int[] arr = getRandomArray(arrayLength);
+    int[] arr = getRandomIntArray(arrayLength);
     Arrays.fill(arr, value);
     return arr;
   }
@@ -433,6 +442,14 @@ public class Helper {
   public static int[] sortByBuiltinMethod(final int[] arr) {
     if (arr == null) return null;
     int[] sorted = new int[arr.length];
+    System.arraycopy(arr, 0, sorted, 0, arr.length);
+    Arrays.sort(sorted);
+    return sorted;
+  }
+
+  public static double[] sortByBuiltinMethod(final double[] arr) {
+    if (arr == null) return null;
+    double[] sorted = new double[arr.length];
     System.arraycopy(arr, 0, sorted, 0, arr.length);
     Arrays.sort(sorted);
     return sorted;
