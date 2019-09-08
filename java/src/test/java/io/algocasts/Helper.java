@@ -382,11 +382,19 @@ public class Helper {
   }
 
   public static int[] getRandomIntArray(int arrayLength) {
-    int[] arr = new int[arrayLength];
-    for (int i = 0; i < arrayLength; ++i) {
-      arr[i] = RANDOM.nextInt(arrayLength * FACTOR);
+    int minValue = -arrayLength * FACTOR;
+    int maxValue = arrayLength * FACTOR;
+    int flag = RANDOM.nextInt(3);
+    if (flag == 0) {
+      // all positive (include 0)
+      return getRandomIntArray(arrayLength, 0, maxValue);
+    } else if (flag == 1) {
+      // all negative
+      return getRandomIntArray(arrayLength, minValue, 0);
+    } else {
+      // mixed positive and negative
+      return getRandomIntArray(arrayLength, minValue, maxValue);
     }
-    return arr;
   }
 
   // All elements are in [minValue, maxValue)

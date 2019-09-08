@@ -13,7 +13,7 @@ public class CountingSortTest {
     CountingSort c = new CountingSort();
     for (int i = 0; i < CNT; ++i) {
       int smallK = Helper.getRandomInt(50, 100);
-      int[] arr = Helper.getRandomIntArray(LENGTH, 0, smallK+1);
+      int[] arr = Helper.getRandomIntArray(LENGTH, -smallK, smallK+1);
       int[] sorted = Helper.sortByBuiltinMethod(arr);
       c.sortLeft2Right(arr);
       Assert.assertArrayEquals(sorted, arr);
@@ -25,7 +25,7 @@ public class CountingSortTest {
     CountingSort c = new CountingSort();
     for (int i = 0; i < CNT; ++i) {
       int smallK = Helper.getRandomInt(50, 100);
-      int[] arr = Helper.getRandomIntArray(LENGTH, 0, smallK+1);
+      int[] arr = Helper.getRandomIntArray(LENGTH, -smallK, smallK+1);
       int[] sorted = Helper.sortByBuiltinMethod(arr);
       c.sortRight2Left(arr);
       Assert.assertArrayEquals(sorted, arr);
