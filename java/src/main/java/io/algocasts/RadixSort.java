@@ -9,6 +9,7 @@ public class RadixSort {
    * @param bits 每次处理的二进制位数（可选值：1, 2, 4, 8, 16）
    * @param mask 每次移动 bits 个二进制位后，使用 mask 取出最低的 bits 位。
    */
+  // b 表示每次处理的二进制位数
   // Time: O(32/b * n), Space: O(n + 2^b)
   private void sort(int[] arr, int bits, int mask) {
     if (arr == null || arr.length == 0) return;
@@ -52,8 +53,6 @@ public class RadixSort {
   // 每次处理 8 个二进制位，是时间/空间上比较折衷的方法。
   // 如果一次处理 16 个二进制位，速度会稍微快一些。但需要额外的空间是 2^16 = 65536，远大于每次处理 8 个二进制位所需空间。
   // 如果一次只处理 4 个二进制位，速度则会慢很多。
-  //
-  // b 表示每次处理的二进制位数
   public void sort4pass(int[] arr) {
     sort(arr, 8, 0xff);
   }
